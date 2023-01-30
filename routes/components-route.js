@@ -50,15 +50,24 @@ router.get("/pagecomps", async (req, res) => {
 });
 
 router.get('/speccomps/:componetName',async (req,res)=>{
+  try {
   const expenses = await Component.find(req.params);
   res.send(expenses);
+} catch {
+  res.status(404);
+    res.send({ error: "Component doesn't exist!" });
+  }
   
 })
 
 router.get('/speccompsid/:componetID',async (req,res)=>{
+  try {
   const expenses = await Component.find(req.params);
   res.send(expenses);
-  
+} catch {
+  res.status(404);
+    res.send({ error: "Component doesn't exist!" });
+  }
 })
 
 router.get('/speccompsd/:id',async (req,res)=>{
@@ -149,9 +158,11 @@ router.get('/speccompsd/:id',async (req,res)=>{
     try {
       const expenses = await Component.findOne(req.params);
       await expenses.remove();
+      res.status(204).send();
       res.send({ data: true });
     } catch {
       res.status(404).send({ error: "comps not found!" });
+      res.send({ error: "Component doesn't exist!" });
     }
   });
 

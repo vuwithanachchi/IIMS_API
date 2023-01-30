@@ -5,7 +5,12 @@ const supertest = require("supertest");
 
 beforeEach((done) => {
     mongoose.connect("mongodb://localhost:27017/iimsdb",
-      { useNewUrlParser: true, useUnifiedTopology: true },
+      { 
+        useNewUrlParser: true ,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify:false
+        },
       () => done());
   });
   

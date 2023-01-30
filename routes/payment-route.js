@@ -13,9 +13,24 @@ router.get("/allpayments", async (req, res) => {
     });
 
 router.get('/specpaymentid/:orderid',async (req,res)=>{
+  try {
         const expenses = await Payment.find(req.params);
         res.send(expenses);
-        
+      } catch {
+        res.status(404);
+          res.send({ error: "Component doesn't exist!" });
+        }
+    })
+
+ router.get('/specpaymentdid/:id',async (req,res)=>{
+      try {
+        const post = await Payment.findOne({ _id: req.params.id });
+        res.send(post);
+      } catch {
+        res.status(404);
+        res.send({ error: "Component doesn't exist!" });
+      }
+      
     })
 
 router.post('/savepayment',async(req,res)=>{
@@ -51,9 +66,21 @@ router.delete("/deletepayment/:paymentid", async (req, res) => {
         try {
           const expenses = await Payment.findOne(req.params);
           await expenses.remove();
-          res.send({ data: true });
+          res.status(204).send();
+          // res.send({ data: true });
         } catch {
-          res.status(404).send({ error: "comps not found!" });
+          res.status(404);
+          res.send({ error: "Component doesn't exist!" });
+        }
+      });
+
+router.delete("/delete/:id", async (req, res) => {
+        try {
+          await Payment.deleteOne({ _id: req.params.id });
+          res.status(204).send();
+        } catch {
+          res.status(404);
+          res.send({ error: "Component doesn't exist!" });
         }
       });
 

@@ -6,7 +6,12 @@ const supertest = require("supertest");
 
 beforeEach((done) => {
   mongoose.connect("mongodb://localhost:27017/iimsdb",
-    { useNewUrlParser: true, useUnifiedTopology: true },
+    { 
+      useNewUrlParser: true ,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify:false 
+    },
     () => done());
 });
 
@@ -158,7 +163,7 @@ test("DELETE /component/delete/:id", async () => {
     imageURL:"New image URL 6",
     qty:"New qty 6",
     unitPrice:"New unit Price 6",
-    componetCode:"New componet Code 6" 
+    componetCode:"New componet Code 6"  
   });
 
   await supertest(app)

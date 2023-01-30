@@ -7,7 +7,8 @@ mongoose.connect("mongodb://localhost:27017/iimsdb", {
     useNewUrlParser: true ,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify:false}).then(() => {
+    useFindAndModify:false
+  }).then(() => {
       console.log("DB Connetion Successfull");
     })
     .catch((err) => {
