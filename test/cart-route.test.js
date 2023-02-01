@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const supertest = require("supertest");
 
 beforeEach((done) => {
-    mongoose.connect("mongodb://localhost:27017/iimsdb",
+    mongoose.connect("mongodb+srv://vihangiwithanachchi:plImP6NSM9se7VUU@iimsdb.xcmltb8.mongodb.net/iims-db",
       { 
         useNewUrlParser: true ,
         useUnifiedTopology: true,
@@ -30,6 +30,8 @@ beforeEach((done) => {
         componetID:"componet ID 1",
         componetName:"componet Name 1",
         quantity:"10"
+
+        
     });
   
     await supertest(app).get("/cart/allcart")
