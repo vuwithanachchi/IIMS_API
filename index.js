@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var  socket = require('socket.io');
 const app = require("./server");
-const port = 3000
+const port = 3000   
 
 mongoose.connect("mongodb+srv://vihangiwithanachchi:plImP6NSM9se7VUU@iimsdb.xcmltb8.mongodb.net/iims-db", { 
     useNewUrlParser: true ,
