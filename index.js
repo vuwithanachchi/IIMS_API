@@ -18,7 +18,6 @@ mongoose.connect("mongodb+srv://vihangiwithanachchi:plImP6NSM9se7VUU@iimsdb.xcml
 
     var server = app.listen(port, () => {
         console.log(`iims Server Started..`)
-        
       })
     
     
