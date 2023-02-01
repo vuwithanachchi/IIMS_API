@@ -21,9 +21,6 @@ mongoose.connect("mongodb+srv://vihangiwithanachchi:plImP6NSM9se7VUU@iimsdb.xcml
         
       })
     
-    app.get('/', (req, res) => {
-  res.send('<h1>Express Demo App</h1> <h4>Message: Success</h4> <p>Version 1.1</p>');
-    })
     
       var io = socket(server, {
             cors: {
