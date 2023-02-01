@@ -21,9 +21,6 @@ const ship = require('./routes/shipping-route')
     app.use('/order', order)
     app.use('/payment', payment)
     app.use('/ship', ship)
-app.get('/', (req, res) => {
-  res.send('<h1>Express Demo App</h1> <h4>Message: Success</h4> <p>Version 1.1</p>');
-})
 
 
 module.exports = app;
